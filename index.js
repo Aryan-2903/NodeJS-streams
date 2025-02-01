@@ -6,6 +6,7 @@ const fs = require("fs");
 
 app.use(status());
 
+//this route will create a stream for the data to be downloaded in chunks
 app.get("/",(req,res)=>{
   const stream = fs.createReadStream("./sample.txt","utf-8");
   stream.on("data",(chunk)=>{
